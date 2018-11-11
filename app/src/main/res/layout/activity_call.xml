@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.akusei.paoapp.CallActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <Button
+            android:id="@+id/btnRadioPatrulla"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="35dp"
+            android:text="Radio Patrulla"
+            android:onClick="llamaradiopatrulla"/>
+
+        <Button
+            android:id="@+id/btnOrgOpTransito"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_alignStart="@+id/btnRadioPatrulla"
+            android:layout_below="@+id/btnRadioPatrulla"
+            android:layout_marginTop="15dp"
+            android:text="Transito"
+            android:onClick="llamatransito"/>
+
+        <Button
+            android:id="@+id/btnVolSalvtoResc"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_alignStart="@+id/btnOrgOpTransito"
+            android:layout_alignTop="@+id/btnBomberos"
+            android:text="Volutariado Salvamento y Rescate"
+            android:onClick="llamavoluntarios"/>
+
+        <Button
+            android:id="@+id/btnSisBusqSalvto"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_alignTop="@+id/btnDiprove"
+            android:layout_toEndOf="@+id/btnDiprove"
+            android:text="Sistema de Busqueda y Salvamento"
+            tools:layout_editor_absoluteX="286dp"
+            tools:layout_editor_absoluteY="0dp"
+            android:onClick="llamabusquedaysalvamento"/>
+
+        <Button
+            android:id="@+id/btnDefensoria"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_alignTop="@+id/btnFelcc"
+            android:layout_toEndOf="@+id/btnFelcc"
+            android:text="Defensoria de la Niñez"
+            tools:layout_editor_absoluteX="270dp"
+            tools:layout_editor_absoluteY="537dp"
+            android:onClick="llamadefensoria"/>
+
+        <Button
+            android:id="@+id/btnEmergencias"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_above="@+id/btnPac"
+            android:layout_toEndOf="@+id/btnBomberos"
+            android:text="Emergencias Medicas"
+            android:onClick="llamaemergencias"/>
+
+        <Button
+            android:id="@+id/btnDiprove"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_alignTop="@+id/btnRadioPatrulla"
+            android:layout_toEndOf="@+id/btnRadioPatrulla"
+            android:text="DIPROVE"
+            android:onClick="llamadiprove"/>
+
+        <Button
+            android:id="@+id/btnFelcc"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_alignEnd="@+id/btnDiprove"
+            android:layout_alignTop="@+id/btnOrgOpTransito"
+            android:text="FELCC"
+            android:onClick="llamafelcc"/>
+
+        <Button
+            android:id="@+id/btnBomberos"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/btnFelcc"
+            android:layout_marginTop="11dp"
+            android:layout_toEndOf="@+id/btnVolSalvtoResc"
+            android:text="Bomberos"
+            android:onClick="llamabomberos"/>
+
+        <Button
+            android:id="@+id/btnRetenEmergencias"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_alignTop="@+id/btnPac"
+            android:layout_toStartOf="@+id/btnPac"
+            android:text="UIMR"
+            android:onClick="llamareten"/>
+
+        <Button
+            android:id="@+id/btnPac"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/btnBomberos"
+            android:layout_marginTop="14dp"
+            android:layout_toStartOf="@+id/btnEmergencias"
+            android:text="PAC"
+            android:onClick="llamapac"/>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
