@@ -19,6 +19,7 @@ import android.net.wifi.p2p.WifiP2pInfo;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Handler;
 import android.os.Message;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -394,7 +395,15 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
     }
     public void send(View v){
         String msg=writeMsg.getText().toString();
-        sendRecieve.write(msg.getBytes());
+        Log.w("msg",msg);
+        System.out.println("msg:"+msg);
+        if(!msg.isEmpty()){
+            System.out.println("Entro al if y quizas si era nulo, pelotudo!");
+        sendRecieve.write(msg.getBytes());}
+        else{
+            System.out.println("El mensaje esta vacio gilipollas");
+            Log.e(null,"El mensaje esta vacio gilipollas");
+        }
     }
     public class Server extends Thread{
         Socket socket;
@@ -432,6 +441,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
         }
     }
     public class SendRecieve extends Thread{
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+
         private Socket socket;
         private InputStream inputStream;
         private OutputStream outputStream;
@@ -447,6 +458,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
         }
 
         @Override
+
         public void run() {
             byte[] buffer=new byte[2048];
             int bytes;
@@ -464,6 +476,16 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
         }
 
         public void write(byte[] bytes){
+            int SDK_INT = android.os.Build.VERSION.SDK_INT;
+
+            if (SDK_INT > 8)
+            {
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                        .permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+
+                // Where you get exception write that code inside this.
+            }
             try {
                 outputStream.write(bytes);
             } catch (IOException e) {
